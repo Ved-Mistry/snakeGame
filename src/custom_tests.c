@@ -100,36 +100,176 @@ bool test_is_vowel() {
 
 bool test_is_tail() {
   // TODO: Implement this function.
+
+  char snek[] = "wasd";
+  for (int k = 0; k < strlen(snek); k++) {
+    char testcase = snek[k]; 
+    bool output = is_tail(testcase); 
+    if (!assert_true("output", output)) {
+      return false; 
+    }
+  }
   return true;
 }
 
 bool test_is_head() {
   // TODO: Implement this function.
+
+  char snek[] = "WASDx";
+  for (int k = 0; k < strlen(snek); k++) {
+    char testcase = snek[k]; 
+    bool output = is_head(testcase); 
+    if (!assert_true("output", output)) {
+      return false; 
+    }
+  }
   return true;
 }
 
 bool test_is_snake() {
   // TODO: Implement this function.
+  char snek[] = "WASD^<>vxwasd";
+  for (int k = 0; k < strlen(snek); k++) {
+    char testcase = snek[k]; 
+    bool output = is_snake(testcase); 
+    if (!assert_true("output", output)) {
+      return false; 
+    }
+  }
   return true;
 }
 
 bool test_body_to_tail() {
-  // TODO: Implement this function.
+  char testcase_1 = '^';
+  char output_1 = body_to_tail(testcase_1);
+  if (!assert_true("output_1", output_1 == 'w')) {
+    return false;
+  }
+
+  char testcase_2 = '<';
+  char output_2 = body_to_tail(testcase_2);
+  if (!assert_true("output_2", output_2 == 'a')) {
+    return false;
+  }
+
+  char testcase_3 = '>';
+  char output_3 = body_to_tail(testcase_3);
+  if (!assert_true("output_3", output_3 == 'd')) {
+    return false;
+  }
+
+  char testcase_4 = 'v';
+  char output_4 = body_to_tail(testcase_4);
+  if (!assert_true("output_4", output_4 == 's')) {
+    return false;
+  }
   return true;
 }
 
 bool test_head_to_body() {
-  // TODO: Implement this function.
+  char testcase_1 = 'W';
+  char output_1 = head_to_body(testcase_1);
+  if (!assert_true("output_1", output_1 == '^')) {
+    return false;
+  }
+
+  char testcase_2 = 'A';
+  char output_2 = head_to_body(testcase_2);
+  if (!assert_true("output_2", output_2 == '<')) {
+    return false;
+  }
+
+  char testcase_3 = 'S';
+  char output_3 = head_to_body(testcase_3);
+  if (!assert_true("output_3", output_3 == 'v')) {
+    return false;
+  }
+
+  char testcase_4 = 'D';
+  char output_4 = head_to_body(testcase_4);
+  if (!assert_true("output_4", output_4 == '>')) {
+    return false;
+  }
   return true;
 }
 
 bool test_get_next_row() {
-  // TODO: Implement this function.
+  char snek1[] = "W^w";
+  for (int k = 0; k < strlen(snek1); k++) {
+    char testcase = snek1[k]; 
+    unsigned int output = get_next_row(2, testcase); 
+    if (!assert_true("output", output == 1)) {
+      return false; 
+    }
+  }
+
+  char snek2[] = "A<a";
+  for (int k = 0; k < strlen(snek2); k++) {
+    char testcase = snek2[k]; 
+    unsigned int output = get_next_row(2, testcase); 
+    if (!assert_true("output", output == 2)) {
+      return false; 
+    }
+  }
+
+  char snek3[] = "Svs";
+  for (int k = 0; k < strlen(snek3); k++) {
+    char testcase = snek3[k]; 
+    unsigned int output = get_next_row(2, testcase); 
+    if (!assert_true("output", output == 3)) {
+      return false; 
+    }
+  }
+
+  char snek4[] = "D>d";
+  for (int k = 0; k < strlen(snek4); k++) {
+    char testcase = snek4[k]; 
+    unsigned int output = get_next_row(2, testcase); 
+    if (!assert_true("output", output == 2)) {
+      return false; 
+    }
+  }
+
   return true;
 }
 
 bool test_get_next_col() {
-  // TODO: Implement this function.
+  char snek1[] = "W^w";
+  for (int k = 0; k < strlen(snek1); k++) {
+    char testcase = snek1[k]; 
+    unsigned int output = get_next_col(2, testcase); 
+    if (!assert_true("output", output == 2)) {
+      return false; 
+    }
+  }
+
+  char snek2[] = "A<a";
+  for (int k = 0; k < strlen(snek2); k++) {
+    char testcase = snek2[k]; 
+    unsigned int output = get_next_col(2, testcase); 
+    if (!assert_true("output", output == 1)) {
+      return false; 
+    }
+  }
+
+  char snek3[] = "Svs";
+  for (int k = 0; k < strlen(snek3); k++) {
+    char testcase = snek3[k]; 
+    unsigned int output = get_next_col(2, testcase); 
+    if (!assert_true("output", output == 2)) {
+      return false; 
+    }
+  }
+
+  char snek4[] = "D>d";
+  for (int k = 0; k < strlen(snek4); k++) {
+    char testcase = snek4[k]; 
+    unsigned int output = get_next_col(2, testcase); 
+    if (!assert_true("output", output == 3)) {
+      return false; 
+    }
+  }
+
   return true;
 }
 
